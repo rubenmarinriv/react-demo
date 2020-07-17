@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Container from 'react-bootstrap/Container';
 import storeContent from './actions';
 
 /*
@@ -27,9 +28,15 @@ function App(props) {
   });
 
   return (
-    <div className="App">
+    <Container
+      className="App"
+      style={{
+        marginTop: '1rem',
+        marginBottom: '1rem',
+      }}
+    >
       <ContentList />
-    </div>
+    </Container>
   );
 }
 
