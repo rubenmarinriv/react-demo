@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "title": "The Shawshank Redemption",
+    "summary": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "year": 1994,
+    "time": "2h 22min",
+    "genres": ["Drama"],
+    "directors": ["Frank Darabont"],
+    "stars": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+    "type": "movie"
+  }, {
+    "id": 2,
+    "title": "The Godfather",
+    "summary": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    "year": 1972,
+    "time": " 2h 55min",
+    "genres": ["Crime", "Drama"],
+    "directors": ["Francis Ford Coppola"],
+    "stars": ["Marlon Brando", "Al Pacino", "James Caan"],
+    "type": "movie"
+  }, {
+    "id": 3,
+    "title": "The Godfather: Part II",
+    "summary": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+    "year": 1974,
+    "time": "3h 22min",
+    "genres": ["Crime", "Drama"],
+    "directors": ["Francis Ford Coppola"],
+    "stars": ["Al Pacino", "Robert De Niro", "Robert Duvall"],
+    "type": "movie"
+  }, {
+    "id": 4,
+    "title": "The Dark Knight",
+    "summary": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "year": 2008,
+    "time": "2h 32min",
+    "genres": ["Action", "Crime", "Drama"],
+    "directors": ["Christopher Nolan"],
+    "stars": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+    "type": "movie"
+  }, {
+    "id": 5,
+    "title": "12 Angry Men",
+    "summary": "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
+    "year": 1957,
+    "time": "1h 36min",
+    "genres": ["Crime", "Drama"],
+    "directors": ["Sidney Lumet"],
+    "stars": ["Henry Fonda", "Lee J. Cobb", "Martin Balsam"],
+    "type": "movie"
+  }, {
+    "id": 6,
+    "title": "Planet Earth II",
+    "summary": "David Attenborough returns in this breathtaking documentary showcasing life on Planet Earth.",
+    "year": 2016,
+    "time": "4h 58min",
+    "genres": ["Documentary"],
+    "directors": [],
+    "stars": ["David Attenborough"],
+    "type": "serie"
+  }, {
+    "id": 7,
+    "title": "Planet Earth",
+    "summary": "Emmy Award-winning, 11 episodes, five years in the making, the most expensive nature documentary series ever commissioned by the BBC, and the first to be filmed in high definition.",
+    "year": 2006,
+    "time": "8h 58min",
+    "genres": ["Documentary"],
+    "directors": [],
+    "stars": ["David Attenborough", "Sigourney Weaver", "Thomas Anguti Johnston"],
+    "type": "serie"
+  }, {
+    "id": 8,
+    "title": "Band of Brothers",
+    "summary": "The story of Easy Company of the U.S. Army 101st Airborne Division, and their mission in World War II Europe, from Operation Overlord, through V-J Day.",
+    "year": 2001,
+    "time": "9h 54min",
+    "genres": ["Action", "Drama", "History"],
+    "directors": [],
+    "stars": ["Scott Grimes", "Damian Lewis", "Ron Livingston"],
+    "type": "serie"
+  }, {
+    "id": 9,
+    "title": "Chernobyl",
+    "summary": "In April 1986, an explosion at the Chernobyl nuclear power plant in the Union of Soviet Socialist Republics becomes one of the world's worst man-made catastrophes.",
+    "year": 2019,
+    "time": "5h 30min",
+    "genres": ["Drama", "History", "Thriller"],
+    "directors": ["Craig Mazin"],
+    "stars": ["Jessie Buckley", "Jared Harris", "Stellan Skarsgård"],
+    "type": "serie"
+  }, {
+    "id": 10,
+    "title": "Blue Planet II",
+    "summary": "David Attenborough returns to the world's oceans in this sequel to the acclaimed documentary filming rare and unusual creatures of the deep, as well as documenting the problems our oceans face.",
+    "year": 2017,
+    "time": "6h 4min",
+    "genres": ["Documentary"],
+    "directors": ["Craig Mazin"],
+    "stars": ["David Attenborough", "Peter Drost", "Roger Munns"],
+    "type": "serie"
+  }
+]
