@@ -1,7 +1,7 @@
-import STORE_CONTENT from '../action-types';
+import { SET_ORDER, SET_CONTENT } from '../action-types';
 
-function storeContent(payload) {
-  return { type: STORE_CONTENT, payload };
-}
+const setOrder = (order) => ({ type: SET_ORDER, order });
 
-export default storeContent;
+const setContent = (content) => ({ type: SET_CONTENT, content });
+
+export { setOrder, setContent };

@@ -1,3 +1,4 @@
-const STORE_CONTENT = 'STORE_CONTENT';
+const SET_ORDER = 'SET_ORDER';
+const SET_CONTENT = 'SET_CONTENT';
 
-export default STORE_CONTENT;
+export { SET_ORDER, SET_CONTENT };

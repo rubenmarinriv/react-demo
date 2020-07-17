@@ -1,12 +1,23 @@
-import STORE_CONTENT from '../action-types';
+import { SET_ORDER, SET_CONTENT } from '../action-types';
 
-function content(state = [], action) {
+const rootReducer = (state = {
+  order: 'asc',
+  content: [],
+}, action) => {
   switch (action.type) {
-    case STORE_CONTENT:
-      return [...state, ...action.payload];
+    case SET_ORDER:
+      return {
+        ...state,
+        order: action.order,
+      };
+    case SET_CONTENT:
+      return {
+        ...state,
+        content: [...state.content, ...action.content],
+      };
     default:
       return state;
   }
-}
+};
 
-export default content;
+export default rootReducer;

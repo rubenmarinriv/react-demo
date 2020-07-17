@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Media from 'react-bootstrap/Media';
@@ -13,7 +14,9 @@ function ContentList(props) {
    * and create a list using them
    */
   const { state } = props;
-  const listItems = state.map((element) => (
+  const { order, content } = state;
+  const sortedContent = order === '' ? content : _.orderBy(content, 'title', order);
+  const listItems = sortedContent.map((element) => (
     <Col
       key={element.id}
       xs={6}
@@ -43,7 +46,10 @@ function ContentList(props) {
 }
 
 ContentList.propTypes = {
-  state: PropTypes.arrayOf(PropTypes.object).isRequired,
+  state: PropTypes.shape({
+    order: PropTypes.string.isRequired,
+    content: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
 };
 
 export default connect(mapStateToProps)(ContentList);

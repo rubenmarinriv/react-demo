@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
-import storeContent from './actions';
+
+// Actions
+import { setContent } from './actions';
 
 /*
  * Movie and series data
@@ -13,18 +15,19 @@ import storeContent from './actions';
 import content from './data/content.json';
 
 // Components
+import Filters from './components/Filters';
 import ContentList from './components/ContentList';
 
 const mapDispatchToProps = (dispatch) => ({
-  storeContent: (newContent) => dispatch(storeContent(newContent)),
+  setContent: (newContent) => dispatch(setContent(newContent)),
 });
 
 function App(props) {
   useEffect(() => {
-    const { storeContent: newContent } = props;
+    const { setContent: setNewContent } = props;
 
     // Set movie and series data in Redux store
-    newContent(content);
+    setNewContent(content);
   });
 
   return (
@@ -35,13 +38,14 @@ function App(props) {
         marginBottom: '1rem',
       }}
     >
+      <Filters />
       <ContentList />
     </Container>
   );
 }
 
 App.propTypes = {
-  storeContent: PropTypes.func.isRequired,
+  setContent: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(App);
