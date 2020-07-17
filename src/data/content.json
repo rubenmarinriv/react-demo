@@ -6,6 +6,7 @@
     "year": 1994,
     "time": "2h 22min",
     "genres": ["Drama"],
+    "img": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Frank Darabont"],
     "stars": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
     "type": "movie"
@@ -16,6 +17,7 @@
     "year": 1972,
     "time": " 2h 55min",
     "genres": ["Crime", "Drama"],
+    "img": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg",
     "directors": ["Francis Ford Coppola"],
     "stars": ["Marlon Brando", "Al Pacino", "James Caan"],
     "type": "movie"
@@ -26,6 +28,7 @@
     "year": 1974,
     "time": "3h 22min",
     "genres": ["Crime", "Drama"],
+    "img": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg",
     "directors": ["Francis Ford Coppola"],
     "stars": ["Al Pacino", "Robert De Niro", "Robert Duvall"],
     "type": "movie"
@@ -36,6 +39,7 @@
     "year": 2008,
     "time": "2h 32min",
     "genres": ["Action", "Crime", "Drama"],
+    "img": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Christopher Nolan"],
     "stars": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
     "type": "movie"
@@ -46,6 +50,7 @@
     "year": 1957,
     "time": "1h 36min",
     "genres": ["Crime", "Drama"],
+    "img": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Sidney Lumet"],
     "stars": ["Henry Fonda", "Lee J. Cobb", "Martin Balsam"],
     "type": "movie"
@@ -56,6 +61,7 @@
     "year": 2016,
     "time": "4h 58min",
     "genres": ["Documentary"],
+    "img": "https://m.media-amazon.com/images/M/MV5BZWYxODViMGYtMGE2ZC00ZGQ3LThhMWUtYTVkNGE3OWU4NWRkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": [],
     "stars": ["David Attenborough"],
     "type": "serie"
@@ -66,6 +72,7 @@
     "year": 2006,
     "time": "8h 58min",
     "genres": ["Documentary"],
+    "img": "https://m.media-amazon.com/images/M/MV5BNmZlYzIzMTItY2EzYS00YTEyLTg0ZjEtMDMzZjM3ODdhN2UzXkEyXkFqcGdeQXVyNjI0MDg2NzE@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": [],
     "stars": ["David Attenborough", "Sigourney Weaver", "Thomas Anguti Johnston"],
     "type": "serie"
@@ -76,6 +83,7 @@
     "year": 2001,
     "time": "9h 54min",
     "genres": ["Action", "Drama", "History"],
+    "img": "https://m.media-amazon.com/images/M/MV5BMTI3ODc2ODc0M15BMl5BanBnXkFtZTYwMjgzNjc3._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": [],
     "stars": ["Scott Grimes", "Damian Lewis", "Ron Livingston"],
     "type": "serie"
@@ -86,6 +94,7 @@
     "year": 2019,
     "time": "5h 30min",
     "genres": ["Drama", "History", "Thriller"],
+    "img": "https://m.media-amazon.com/images/M/MV5BZGQ2YmMxZmEtYjI5OS00NzlkLTlkNTEtYWMyMzkyMzc2MDU5XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Craig Mazin"],
     "stars": ["Jessie Buckley", "Jared Harris", "Stellan Skarsgård"],
     "type": "serie"
@@ -96,6 +105,7 @@
     "year": 2017,
     "time": "6h 4min",
     "genres": ["Documentary"],
+    "img": "https://m.media-amazon.com/images/M/MV5BYjg2ODk0MjUtNmMzZS00MjY0LWI1YWMtN2JhMjRmZGUwY2I3XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY268_CR4,0,182,268_AL_.jpg",
     "directors": ["Craig Mazin"],
     "stars": ["David Attenborough", "Peter Drost", "Roger Munns"],
     "type": "serie"
