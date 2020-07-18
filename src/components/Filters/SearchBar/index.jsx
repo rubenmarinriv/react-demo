@@ -63,8 +63,6 @@ function SearchBar(props) {
 
   return (
     <Form
-      inline
-      className="float-sm-right"
       style={{
         position: 'relative',
       }}

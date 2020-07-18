@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
+import { CaretUpFill, CaretDownFill } from 'react-bootstrap-icons';
 
 // Redux actions
 import { setOrder } from '../../../actions';
@@ -40,7 +41,8 @@ function Sort(props) {
     >
       Sort
       {' '}
-      {state.order === 'asc' ? '▲' : '▼'}
+      {state.order === 'asc' ? <CaretUpFill color="white" />
+        : <CaretDownFill color="white" />}
     </Button>
   );
 }
