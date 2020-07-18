@@ -32,11 +32,7 @@ function App(props) {
 
   return (
     <Container
-      className="App"
-      style={{
-        marginTop: '1rem',
-        marginBottom: '1rem',
-      }}
+      className="App mt-3"
     >
       <Filters />
       <ContentList />

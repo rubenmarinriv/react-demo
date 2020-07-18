@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
+import { Search } from 'react-bootstrap-icons';
 
 // Actions
 import { setOrder } from '../../actions';
@@ -36,12 +40,13 @@ function Filters(props) {
   };
 
   return (
-    <Row
-      style={{
-        marginBottom: '1rem',
-      }}
-    >
-      <Col>
+    <Row className="mb-3">
+      <Col
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
         <span
           role="button"
           tabIndex={0}
@@ -52,6 +57,22 @@ function Filters(props) {
           {' '}
           {order === 'asc' ? '▼' : '▲'}
         </span>
+      </Col>
+      <Col xs={12} sm={6}>
+        <Form inline className="float-sm-right">
+          <Button
+            variant="outline-success"
+            style={{
+              position: 'absolute',
+              backgroundColor: 'transparent',
+              borderColor: 'transparent',
+              pointerEvents: 'none',
+            }}
+          >
+            <Search color="black" />
+          </Button>
+          <FormControl type="text" placeholder="Search" className="pl-5" />
+        </Form>
       </Col>
     </Row>
   );

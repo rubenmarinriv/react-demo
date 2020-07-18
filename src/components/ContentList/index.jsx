@@ -17,15 +17,7 @@ function ContentList(props) {
   const { order, content } = state;
   const sortedContent = order === '' ? content : _.orderBy(content, 'title', order);
   const listItems = sortedContent.map((element) => (
-    <Col
-      key={element.id}
-      xs={6}
-      md={3}
-      lg={2}
-      style={{
-        marginBottom: '1rem',
-      }}
-    >
+    <Col key={element.id} xs={6} md={3} lg={2} className="mb-3">
       <Media>
         <img
           key={element.id}
