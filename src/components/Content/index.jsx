@@ -2,28 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Media from 'react-bootstrap/Media';
+import { Row, Col, Media } from 'react-bootstrap';
 
 const mapStateToProps = (state) => ({ state });
 
-function ContentList(props) {
-  /*
-   * Get movie and series data from Redux store
-   * and create a list using them
-   */
+function Content(props) {
+  // Get and display movie and series data from Redux store
   const { state } = props;
-  const { order, search, content } = state;
+
   // Apply order
-  const sortedContent = order === '' ? content : _.orderBy(content, 'title', order);
+  const sortedContent = state.order === '' ? state.content
+    : _.orderBy(state.content, 'title', state.order);
+
   // Apply search
-  const searchedContent = search === '' ? sortedContent
+  const searchedContent = state.search === '' ? sortedContent
     : _.filter(sortedContent, (element) => (
-      element.title.toLowerCase().includes(search.toLowerCase())
-      || element.summary.toLowerCase().includes(search.toLowerCase())
+      element.title.toLowerCase().includes(state.search.toLowerCase())
     ));
-  const listItems = searchedContent.map((element) => (
+
+  const content = searchedContent.map((element) => (
     <Col key={element.id} xs={6} md={3} lg={2} className="mb-3">
       <Media>
         <img
@@ -38,13 +35,13 @@ function ContentList(props) {
   ));
 
   return (
-    <Row className="ContentList">
-      {listItems}
+    <Row className="Content">
+      {content}
     </Row>
   );
 }
 
-ContentList.propTypes = {
+Content.propTypes = {
   state: PropTypes.shape({
     order: PropTypes.string.isRequired,
     search: PropTypes.string.isRequired,
@@ -52,4 +49,4 @@ ContentList.propTypes = {
   }).isRequired,
 };
 
-export default connect(mapStateToProps)(ContentList);
+export default connect(mapStateToProps)(Content);

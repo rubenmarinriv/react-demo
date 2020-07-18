@@ -1,22 +1,21 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Container from 'react-bootstrap/Container';
+import { Container } from 'react-bootstrap';
 
-// Actions
+// Redux actions
 import { setContent } from './actions';
 
 /*
  * Movie and series data
  *
  * If we had a backend we would make a request to the server
- * to get the data using fetch or some package like axios
+ * to get the data using fetch or some module like axios
  */
 import content from './data/content.json';
 
 // Components
-import Filters from './components/Filters';
-import ContentList from './components/ContentList';
+import Home from './components/Home';
 
 const mapDispatchToProps = (dispatch) => ({
   setContent: (newContent) => dispatch(setContent(newContent)),
@@ -26,16 +25,13 @@ function App(props) {
   useEffect(() => {
     const { setContent: setNewContent } = props;
 
-    // Set movie and series data in Redux store
+    // Set "fetched" movie and series data in Redux store
     setNewContent(content);
   });
 
   return (
-    <Container
-      className="App mt-3"
-    >
-      <Filters />
-      <ContentList />
+    <Container className="App mt-3">
+      <Home />
     </Container>
   );
 }
