@@ -17,27 +17,22 @@ function Sort(props) {
   const { state } = props;
 
   // Alphabetically sort by title
-  const handleSort = (e) => {
-    const { type, keyCode } = e;
+  const handleSort = () => {
+    const { setOrder: setNewOrder } = props;
+    let newOrder = '';
 
-    if (type === 'click' || keyCode === 13) {
-      const { setOrder: setNewOrder } = props;
-      let newOrder = '';
-
-      if (state.order === 'asc') {
-        newOrder = 'desc';
-      } else {
-        newOrder = 'asc';
-      }
-      setNewOrder(newOrder);
+    if (state.order === 'asc') {
+      newOrder = 'desc';
+    } else {
+      newOrder = 'asc';
     }
+    setNewOrder(newOrder);
   };
 
   return (
     <Button
       variant="primary"
-      onClick={(e) => handleSort(e)}
-      onKeyDown={(e) => handleSort(e)}
+      onClick={handleSort}
     >
       Sort
       {' '}

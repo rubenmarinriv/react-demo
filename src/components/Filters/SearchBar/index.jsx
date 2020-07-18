@@ -56,6 +56,7 @@ function SearchBar(props) {
         cursor: 'pointer',
       }}
       onClick={(e) => handleSuggestionClick(e)}
+      onKeyDown={(e) => handleSuggestionClick(e)}
     >
       {element.title}
     </ListGroup.Item>
@@ -66,6 +67,7 @@ function SearchBar(props) {
       style={{
         position: 'relative',
       }}
+      onSubmit={(e) => e.preventDefault()}
     >
       <span
         style={{
