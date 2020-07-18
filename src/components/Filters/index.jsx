@@ -9,12 +9,13 @@ import Button from 'react-bootstrap/Button';
 import { Search } from 'react-bootstrap-icons';
 
 // Actions
-import { setOrder } from '../../actions';
+import { setOrder, setSearch } from '../../actions';
 
 const mapStateToProps = (state) => ({ state });
 
 const mapDispatchToProps = (dispatch) => ({
   setOrder: (newOrder) => dispatch(setOrder(newOrder)),
+  setSearch: (newSearch) => dispatch(setSearch(newSearch)),
 });
 
 function Filters(props) {
@@ -37,6 +38,15 @@ function Filters(props) {
 
       setNewOrder(newOrder);
     }
+  };
+
+  // Search using title or summary
+  const handleSearch = (e) => {
+    const { setSearch: setNewSearch } = props;
+    const { currentTarget } = e;
+    const { value } = currentTarget;
+
+    setNewSearch(value);
   };
 
   return (
@@ -71,7 +81,12 @@ function Filters(props) {
           >
             <Search color="black" />
           </Button>
-          <FormControl type="text" placeholder="Search" className="pl-5" />
+          <FormControl
+            type="text"
+            placeholder="Search"
+            className="pl-5"
+            onKeyUp={(e) => handleSearch(e)}
+          />
         </Form>
       </Col>
     </Row>
@@ -84,6 +99,7 @@ Filters.propTypes = {
     content: PropTypes.arrayOf(PropTypes.object).isRequired,
   }).isRequired,
   setOrder: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);

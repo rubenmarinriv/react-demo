@@ -14,9 +14,16 @@ function ContentList(props) {
    * and create a list using them
    */
   const { state } = props;
-  const { order, content } = state;
+  const { order, search, content } = state;
+  // Apply order
   const sortedContent = order === '' ? content : _.orderBy(content, 'title', order);
-  const listItems = sortedContent.map((element) => (
+  // Apply search
+  const searchedContent = search === '' ? sortedContent
+    : _.filter(sortedContent, (element) => (
+      element.title.toLowerCase().includes(search.toLowerCase())
+      || element.summary.toLowerCase().includes(search.toLowerCase())
+    ));
+  const listItems = searchedContent.map((element) => (
     <Col key={element.id} xs={6} md={3} lg={2} className="mb-3">
       <Media>
         <img
@@ -40,6 +47,7 @@ function ContentList(props) {
 ContentList.propTypes = {
   state: PropTypes.shape({
     order: PropTypes.string.isRequired,
+    search: PropTypes.string.isRequired,
     content: PropTypes.arrayOf(PropTypes.object).isRequired,
   }).isRequired,
 };

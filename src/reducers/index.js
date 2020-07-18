@@ -1,7 +1,8 @@
-import { SET_ORDER, SET_CONTENT } from '../action-types';
+import { SET_ORDER, SET_SEARCH, SET_CONTENT } from '../action-types';
 
 const rootReducer = (state = {
   order: 'asc',
+  search: '',
   content: [],
 }, action) => {
   switch (action.type) {
@@ -9,6 +10,11 @@ const rootReducer = (state = {
       return {
         ...state,
         order: action.order,
+      };
+    case SET_SEARCH:
+      return {
+        ...state,
+        search: action.search,
       };
     case SET_CONTENT:
       return {
