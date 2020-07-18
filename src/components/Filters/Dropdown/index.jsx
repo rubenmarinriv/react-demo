@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Form } from 'react-bootstrap';
 import { isArray, isString } from 'lodash';
+import { Form } from 'react-bootstrap';
 
 const mapStateToProps = (state) => ({ state });
 
 function Dropdown(props) {
-  const { state, defaultText, optionsKey } = props;
+  const {
+    state, defaultText, optionsKey, set,
+  } = props;
   const values = [];
 
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
@@ -29,6 +31,16 @@ function Dropdown(props) {
     }
   });
 
+  const handleChange = (e) => {
+    const { currentTarget } = e;
+    let newValue = '';
+
+    if (currentTarget.value !== defaultText) {
+      newValue = currentTarget.value;
+    }
+    set(newValue);
+  };
+
   const options = values.map((element) => (
     <option
       key={element}
@@ -42,7 +54,7 @@ function Dropdown(props) {
 
   return (
     <Form.Group>
-      <Form.Control as="select">
+      <Form.Control as="select" onChange={(e) => handleChange(e)}>
         <option>{defaultText}</option>
         {options}
       </Form.Control>
@@ -58,6 +70,7 @@ Dropdown.propTypes = {
   }).isRequired,
   defaultText: PropTypes.string.isRequired,
   optionsKey: PropTypes.string.isRequired,
+  set: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(Dropdown);

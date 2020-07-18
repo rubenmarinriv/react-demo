@@ -14,9 +14,17 @@ function Content(props) {
   const sortedContent = state.order === '' ? state.content
     : _.orderBy(state.content, 'title', state.order);
 
+  // Apply genre filter
+  const filteredByGenre = state.genre === '' ? sortedContent
+    : sortedContent.filter((element) => element.genres.includes(state.genre));
+
+  // Apply type filter
+  const filteredByType = state.type === '' ? filteredByGenre
+    : filteredByGenre.filter((element) => element.type.includes(state.type.toLowerCase()));
+
   // Apply search
-  const searchedContent = state.search === '' ? sortedContent
-    : _.filter(sortedContent, (element) => (
+  const searchedContent = state.search === '' ? filteredByType
+    : _.filter(filteredByType, (element) => (
       element.title.toLowerCase().includes(state.search.toLowerCase())
     ));
 
@@ -44,7 +52,9 @@ function Content(props) {
 Content.propTypes = {
   state: PropTypes.shape({
     order: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
     search: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     content: PropTypes.arrayOf(PropTypes.object).isRequired,
   }).isRequired,
 };
