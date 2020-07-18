@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
@@ -16,6 +16,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 function SearchBar(props) {
   const { state, setSearch: setNewSearch } = props;
+  const [suggestionClicked, setSuggestionClicked] = useState(false);
+  // Search input ref
   let searchInput = null;
 
   // Apply search
@@ -24,20 +26,25 @@ function SearchBar(props) {
       element.title.toLowerCase().includes(state.search.toLowerCase())
     ));
 
-  const showSuggestions = (e) => {
-    const { type, keyCode, currentTarget } = e;
-
-    if (type === 'click' || keyCode === 13) {
-      searchInput.value = currentTarget.innerText;
-      setNewSearch(currentTarget.innerText);
-    }
-  };
-
   // Search by title
   const handleSearch = (e) => {
     const { currentTarget } = e;
 
+    if (suggestionClicked) {
+      setSuggestionClicked(false);
+    }
     setNewSearch(currentTarget.value);
+  };
+
+  const handleSuggestionClick = (e) => {
+    const { type, keyCode, currentTarget } = e;
+
+    if (type === 'click' || keyCode === 13) {
+      searchInput.value = currentTarget.innerText;
+      // Hide suggestions when a suggestion is clicked
+      setSuggestionClicked(true);
+      setNewSearch(currentTarget.innerText);
+    }
   };
 
   const suggestions = searchedContent.map((element) => (
@@ -48,7 +55,7 @@ function SearchBar(props) {
         padding: '.375rem .75rem',
         cursor: 'pointer',
       }}
-      onClick={(e) => showSuggestions(e)}
+      onClick={(e) => handleSuggestionClick(e)}
     >
       {element.title}
     </ListGroup.Item>
@@ -80,7 +87,7 @@ function SearchBar(props) {
         ref={(input) => { searchInput = input; }}
         onKeyUp={(e) => handleSearch(e)}
       />
-      {state.search !== '' && (
+      {state.search !== '' && !suggestionClicked && (
         <ListGroup
           style={{
             position: 'absolute',
