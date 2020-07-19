@@ -23,6 +23,7 @@ function Content(props) {
     img: '',
     directors: [],
     stars: [],
+    rating: 0,
     show: false,
   });
 

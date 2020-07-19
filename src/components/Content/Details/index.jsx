@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Modal, Media, Row, Col,
 } from 'react-bootstrap';
+import StarRatings from 'react-star-ratings';
 
 function Details(props) {
   const { details, close } = props;
@@ -76,6 +77,14 @@ function Details(props) {
                 {details.stars.join(', ')}
               </Col>
             )}
+            <Col className="mt-3 text-center text-md-left">
+              <StarRatings
+                rating={details.rating}
+                starDimension="24px"
+                starRatedColor="yellow"
+                numberOfStars={5}
+              />
+            </Col>
           </Col>
         </Row>
       </Modal.Body>
@@ -94,6 +103,7 @@ Details.propTypes = {
     img: PropTypes.string.isRequired,
     directors: PropTypes.arrayOf(PropTypes.string).isRequired,
     stars: PropTypes.arrayOf(PropTypes.string).isRequired,
+    rating: PropTypes.number.isRequired,
     show: PropTypes.bool.isRequired,
   }).isRequired,
   close: PropTypes.func.isRequired,
