@@ -12,11 +12,10 @@ const mapStateToProps = (state) => ({ state });
 
 function Home(props) {
   const { state } = props;
-  const show = !(state.content.length > 0);
 
   return (
     <div className="Home">
-      <Loader show={show} />
+      <Loader show={!(state.content.length > 0)} />
       <Container>
         <Filters />
         <Content />
