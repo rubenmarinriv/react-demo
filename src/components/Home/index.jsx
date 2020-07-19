@@ -8,7 +8,7 @@ import Content from '../Content';
 function Home() {
   return (
     <div className="Home">
-      <Container className="App mt-3">
+      <Container>
         <Filters />
         <Content />
       </Container>

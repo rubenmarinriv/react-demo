@@ -37,9 +37,15 @@ function App(props) {
   });
 
   return (
-    <>
+    <div className="App">
       <Router>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar
+          className="mb-3"
+          collapseOnSelect
+          expand="md"
+          bg="dark"
+          variant="dark"
+        >
           <Container>
             <Navbar.Brand>
               <Link
@@ -76,7 +82,7 @@ function App(props) {
           </Route>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 
