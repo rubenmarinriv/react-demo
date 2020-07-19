@@ -9,6 +9,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Frank Darabont"],
     "stars": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+    "rating": 4.65,
+    "votes": 124,
     "type": "movie"
   }, {
     "id": 2,
@@ -20,6 +22,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg",
     "directors": ["Francis Ford Coppola"],
     "stars": ["Marlon Brando", "Al Pacino", "James Caan"],
+    "rating": 4.6,
+    "votes": 133,
     "type": "movie"
   }, {
     "id": 3,
@@ -31,6 +35,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg",
     "directors": ["Francis Ford Coppola"],
     "stars": ["Al Pacino", "Robert De Niro", "Robert Duvall"],
+    "rating": 4.5,
+    "votes": 97,
     "type": "movie"
   }, {
     "id": 4,
@@ -42,6 +48,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Christopher Nolan"],
     "stars": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+    "rating": 4.5,
+    "votes": 156,
     "type": "movie"
   }, {
     "id": 5,
@@ -53,6 +61,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Sidney Lumet"],
     "stars": ["Henry Fonda", "Lee J. Cobb", "Martin Balsam"],
+    "rating": 4.45,
+    "votes": 62,
     "type": "movie"
   }, {
     "id": 6,
@@ -64,6 +74,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Steven Spielberg"],
     "stars": ["Liam Neeson", "Ralph Fiennes", "Ben Kingsley"],
+    "rating": 4.45,
+    "votes": 108,
     "type": "movie"
   }, {
     "id": 7,
@@ -75,6 +87,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BZWYxODViMGYtMGE2ZC00ZGQ3LThhMWUtYTVkNGE3OWU4NWRkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": [],
     "stars": ["David Attenborough"],
+    "rating": 4.75,
+    "votes": 345,
     "type": "serie"
   }, {
     "id": 8,
@@ -86,6 +100,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BNmZlYzIzMTItY2EzYS00YTEyLTg0ZjEtMDMzZjM3ODdhN2UzXkEyXkFqcGdeQXVyNjI0MDg2NzE@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": [],
     "stars": ["David Attenborough", "Sigourney Weaver", "Thomas Anguti Johnston"],
+    "rating": 4.7,
+    "votes": 278,
     "type": "serie"
   }, {
     "id": 9,
@@ -97,6 +113,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BMTI3ODc2ODc0M15BMl5BanBnXkFtZTYwMjgzNjc3._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": [],
     "stars": ["Scott Grimes", "Damian Lewis", "Ron Livingston"],
+    "rating": 4.7,
+    "votes": 134,
     "type": "serie"
   }, {
     "id": 10,
@@ -108,6 +126,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BZGQ2YmMxZmEtYjI5OS00NzlkLTlkNTEtYWMyMzkyMzc2MDU5XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": ["Craig Mazin"],
     "stars": ["Jessie Buckley", "Jared Harris", "Stellan Skarsgård"],
+    "rating": 4.7,
+    "votes": 565,
     "type": "serie"
   }, {
     "id": 11,
@@ -119,6 +139,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BYjg2ODk0MjUtNmMzZS00MjY0LWI1YWMtN2JhMjRmZGUwY2I3XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY268_CR4,0,182,268_AL_.jpg",
     "directors": ["Craig Mazin"],
     "stars": ["David Attenborough", "Peter Drost", "Roger Munns"],
+    "rating": 4.65,
+    "votes": 180,
     "type": "serie"
   }, {
     "id": 12,
@@ -130,6 +152,8 @@
     "img": "https://m.media-amazon.com/images/M/MV5BN2I1ZjA5YjQtYmQ0ZS00ZmE1LTk1ZjktNTQ5ODIzY2JiZDdhXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_UX182_CR0,0,182,268_AL_.jpg",
     "directors": [],
     "stars": ["David Attenborough"],
+    "rating": 4.65,
+    "votes": 117,
     "type": "serie"
   }
 ]
