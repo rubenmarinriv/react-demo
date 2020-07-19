@@ -23,6 +23,7 @@ import content from './data/content.json';
 // Components
 import Home from './components/Home';
 import Login from './components/Login';
+import Logout from './components/Logout';
 
 const mapDispatchToProps = (dispatch) => ({
   setContent: (newContent) => dispatch(setContent(newContent)),
@@ -106,6 +107,9 @@ function App(props) {
           </Route>
           <Route path="/login">
             <Login login={fakeAuth.login} />
+          </Route>
+          <Route path="/logout">
+            <Logout logout={fakeAuth.logout} />
           </Route>
         </Switch>
       </Router>
