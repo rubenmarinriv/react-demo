@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Navbar, Nav, Container } from 'react-bootstrap';
@@ -29,12 +29,25 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 function App(props) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   useEffect(() => {
     const { setContent: setNewContent } = props;
 
     // Set "fetched" movie and series data in Redux store
     setNewContent(content);
-  });
+  }, []);
+
+  const fakeAuth = {
+    login(cb) {
+      setIsAuthenticated(true);
+      setTimeout(cb, 100);
+    },
+    logout(cb) {
+      setIsAuthenticated(false);
+      setTimeout(cb, 100);
+    },
+  };
 
   return (
     <div className="App">
@@ -61,14 +74,28 @@ function App(props) {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto" />
               <Nav>
-                <Link
-                  to="/login"
-                  style={{
-                    color: 'white',
-                  }}
-                >
-                  Login
-                </Link>
+                { !isAuthenticated && (
+                  <Link
+                    className="nav-link"
+                    to="/login"
+                    style={{
+                      color: 'white',
+                    }}
+                  >
+                    Login
+                  </Link>
+                )}
+                { isAuthenticated && (
+                  <Link
+                    className="nav-link"
+                    to="/logout"
+                    style={{
+                      color: 'white',
+                    }}
+                  >
+                    Logout
+                  </Link>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -78,7 +105,7 @@ function App(props) {
             <Home />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login login={fakeAuth.login} />
           </Route>
         </Switch>
       </Router>

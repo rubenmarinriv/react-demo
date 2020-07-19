@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
 function SearchBar(props) {
   const { state, setSearch: setNewSearch } = props;
   const [suggestionClicked, setSuggestionClicked] = useState(false);
+
   // Search input ref
   let searchInput = null;
 

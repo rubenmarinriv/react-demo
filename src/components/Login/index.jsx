@@ -1,17 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
 import {
   Container, Row, Col, Card, Form, Button,
 } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
-function Login() {
+/*
+ * Users data
+ *
+ * If we had a backend we would make a request to the server
+ * to make the auth process
+ */
+import users from '../../data/users.json';
+
+function Login(props) {
+  const history = useHistory();
+
   // Email input ref
   let emailInput = null;
   // Password input ref
   let passwordInput = null;
 
   const handleSubmit = (e) => {
-    console.log(emailInput.value);
-    console.log(passwordInput.value);
+    const { login } = props;
+    const user = _.find(users, { email: emailInput.value });
+
+    if (typeof user !== 'undefined'
+    && user.password === passwordInput.value) {
+      login(() => {
+        history.push('/');
+      });
+    }
 
     e.preventDefault();
   };
@@ -61,5 +81,9 @@ function Login() {
     </div>
   );
 }
+
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+};
 
 export default Login;
