@@ -1,5 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+
+// Components
+import Loader from '../Loader';
 
 function Logout(props) {
   const { logout } = props;
@@ -9,7 +13,11 @@ function Logout(props) {
     history.push('/');
   });
 
-  return null;
+  return (
+    <div className="Logout">
+      <Loader />
+    </div>
+  );
 }
 
 Logout.propTypes = {

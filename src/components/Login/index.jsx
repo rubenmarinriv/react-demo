@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import _ from 'lodash';
 import {
   Container, Row, Col, Card, Form, Button,
 } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
 
 /*
  * Users data

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import {
+  Navbar, Nav, Container,
+} from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
@@ -36,7 +38,9 @@ function App(props) {
     const { setContent: setNewContent } = props;
 
     // Set "fetched" movie and series data in Redux store
-    setNewContent(content);
+    setTimeout(() => {
+      setNewContent(content);
+    }, 100);
   }, []);
 
   const fakeAuth = {
@@ -59,6 +63,9 @@ function App(props) {
           expand="md"
           bg="dark"
           variant="dark"
+          style={{
+            zIndex: 2,
+          }}
         >
           <Container>
             <Navbar.Brand>
