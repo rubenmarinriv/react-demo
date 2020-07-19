@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { Row, Col, Media } from 'react-bootstrap';
+
+// Components
+import Details from './Details';
 
 const mapStateToProps = (state) => ({ state });
 
 function Content(props) {
   // Get and display movie and series data from Redux store
   const { state } = props;
+
+  const [details, setDetails] = useState({
+    id: 0,
+    title: '',
+    summary: '',
+    year: 0,
+    time: '',
+    genres: [],
+    img: '',
+    directors: [],
+    stars: [],
+    show: false,
+  });
 
   // Apply order
   const sortedContent = state.order === '' ? state.content
@@ -28,9 +44,34 @@ function Content(props) {
       element.title.toLowerCase().includes(state.search.toLowerCase())
     ));
 
+  const handleShow = (e, element) => {
+    const { type, keyCode } = e;
+
+    if (type === 'click' || keyCode === 13) {
+      setDetails({
+        ...element,
+        show: true,
+      });
+    }
+  };
+
+  const handleClose = (element) => {
+    setDetails({
+      ...element,
+      show: false,
+    });
+  };
+
   const content = searchedContent.map((element) => (
     <Col key={element.id} xs={6} md={3} lg={2} className="mb-3">
-      <Media>
+      <Media
+        tabIndex={0}
+        style={{
+          cursor: 'pointer',
+        }}
+        onClick={(e) => handleShow(e, element)}
+        onKeyDown={(e) => handleShow(e, element)}
+      >
         <img
           key={element.id}
           width="100%"
@@ -44,6 +85,7 @@ function Content(props) {
 
   return (
     <Row className="Content">
+      <Details details={details} close={handleClose} />
       {content}
     </Row>
   );
