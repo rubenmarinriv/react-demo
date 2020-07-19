@@ -20,7 +20,7 @@ function Filters(props) {
   const { setGenre: setNewGenre, setType: setNewType } = props;
 
   return (
-    <Row className="Filters mb-3">
+    <Row className="Filters mb-3 mb-md-0">
       <Col xs={4} md={2}>
         <Sort />
       </Col>
