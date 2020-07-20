@@ -7,10 +7,10 @@ import { Row, Col, Media } from 'react-bootstrap';
 // Components
 import Details from './Details';
 
+// Redux state
 const mapStateToProps = (state) => ({ state });
 
-function Content(props) {
-  // Get and display movie and series data from Redux store
+const Content = (props) => {
   const { state, isAuthenticated } = props;
 
   const [details, setDetails] = useState({
@@ -28,24 +28,25 @@ function Content(props) {
     show: false,
   });
 
-  // Apply order
+  // Order content
   const sortedContent = state.order === '' ? state.content
     : _.orderBy(state.content, 'title', state.order);
 
-  // Apply genre filter
+  // Apply 'genre' filter
   const filteredByGenre = state.genre === '' ? sortedContent
     : sortedContent.filter((element) => element.genres.includes(state.genre));
 
-  // Apply type filter
+  // Apply 'type' filter
   const filteredByType = state.type === '' ? filteredByGenre
     : filteredByGenre.filter((element) => element.type.includes(state.type.toLowerCase()));
 
-  // Apply search
+  // Filter by current search
   const searchedContent = state.search === '' ? filteredByType
     : _.filter(filteredByType, (element) => (
       element.title.toLowerCase().includes(state.search.toLowerCase())
     ));
 
+  // Open content details
   const handleShow = (e, element) => {
     const { type, keyCode } = e;
 
@@ -57,6 +58,7 @@ function Content(props) {
     }
   };
 
+  // Close content details
   const handleClose = () => {
     setDetails({
       ...details,
@@ -64,13 +66,17 @@ function Content(props) {
     });
   };
 
-  const updateDetails = (id) => {
+  // Update content details
+  const handleUpdate = (id) => {
+    const index = id - 1;
+
     setDetails({
-      ...state.content[id - 1],
+      ...state.content[index],
       show: true,
     });
   };
 
+  // Create content after being filtered
   const content = searchedContent.map((element) => (
     <Col key={element.id} xs={6} md={3} lg={2} className="mb-3">
       <Media
@@ -81,13 +87,7 @@ function Content(props) {
         onClick={(e) => handleShow(e, element)}
         onKeyDown={(e) => handleShow(e, element)}
       >
-        <img
-          key={element.id}
-          width="100%"
-          height="auto"
-          src={element.img}
-          alt={element.title}
-        />
+        <img key={element.id} width="100%" height="auto" src={element.img} alt={element.title} />
       </Media>
     </Col>
   ));
@@ -98,13 +98,14 @@ function Content(props) {
         details={details}
         close={handleClose}
         isAuthenticated={isAuthenticated}
-        update={updateDetails}
+        update={handleUpdate}
       />
       {content}
     </Row>
   );
-}
+};
 
+// Validate data types
 Content.propTypes = {
   state: PropTypes.shape({
     order: PropTypes.string.isRequired,
@@ -116,4 +117,5 @@ Content.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };
 
+// Connect Redux state to Content props
 export default connect(mapStateToProps)(Content);

@@ -9,15 +9,23 @@ import StarRatings from 'react-star-ratings';
 // Redux actions
 import { setRating } from '../../../actions';
 
+// Redux dispatchers
 const mapDispatchToProps = (dispatch) => ({
   setRating: (newRating, id) => dispatch(setRating(newRating, id)),
 });
 
-function Details(props) {
+const Details = (props) => {
   const {
     details, close, isAuthenticated, setRating: setNewRating,
   } = props;
 
+  /*
+  * Update content rating
+  *
+  * If we had a backend we would make a request to the server
+  * using fetch or axios to check if the user has already voted
+  * and we would handle possible errors using an Alert component
+  */
   const handleChangeRating = (newRating, id) => {
     const { update } = props;
 
@@ -26,13 +34,7 @@ function Details(props) {
   };
 
   return (
-    <Modal
-      className="Details"
-      size="lg"
-      centered
-      show={details.show}
-      onHide={close}
-    >
+    <Modal className="Details" size="lg" centered show={details.show} onHide={close}>
       <Modal.Header closeButton>
         <Modal.Title>
           {details.title}
@@ -46,13 +48,7 @@ function Details(props) {
         <Row>
           <Col md={4}>
             <Media>
-              <img
-                key={details.id}
-                width="100%"
-                height="auto"
-                src={details.img}
-                alt={details.title}
-              />
+              <img key={details.id} width="100%" height="auto" src={details.img} alt={details.title} />
             </Media>
           </Col>
           <Col md={8} className="mt-3 mb-3">
@@ -120,8 +116,9 @@ function Details(props) {
       </Modal.Body>
     </Modal>
   );
-}
+};
 
+// Validate data types
 Details.propTypes = {
   details: PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -143,4 +140,5 @@ Details.propTypes = {
   setRating: PropTypes.func.isRequired,
 };
 
+// Connect dispatchers to Details props
 export default connect(null, mapDispatchToProps)(Details);

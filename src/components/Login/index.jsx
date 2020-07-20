@@ -6,7 +6,13 @@ import {
   Container, Row, Col, Card, Form, Button,
 } from 'react-bootstrap';
 
-// Users data
+/*
+ * Users data
+ *
+ * If we had a backend we would make a request to the server
+ * using fetch or axios to login and we would handle possible errors
+ * using an Alert component
+ */
 import users from '../../data/users.json';
 
 const Login = (props) => {
