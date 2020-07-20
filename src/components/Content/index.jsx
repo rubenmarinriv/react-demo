@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({ state });
 
 function Content(props) {
   // Get and display movie and series data from Redux store
-  const { state } = props;
+  const { state, isAuthenticated } = props;
 
   const [details, setDetails] = useState({
     id: 0,
@@ -24,6 +24,7 @@ function Content(props) {
     directors: [],
     stars: [],
     rating: 0,
+    votes: 0,
     show: false,
   });
 
@@ -56,10 +57,17 @@ function Content(props) {
     }
   };
 
-  const handleClose = (element) => {
+  const handleClose = () => {
     setDetails({
-      ...element,
+      ...details,
       show: false,
+    });
+  };
+
+  const updateDetails = (id) => {
+    setDetails({
+      ...state.content[id - 1],
+      show: true,
     });
   };
 
@@ -86,7 +94,12 @@ function Content(props) {
 
   return (
     <Row className="Content">
-      <Details details={details} close={handleClose} />
+      <Details
+        details={details}
+        close={handleClose}
+        isAuthenticated={isAuthenticated}
+        update={updateDetails}
+      />
       {content}
     </Row>
   );
@@ -100,6 +113,7 @@ Content.propTypes = {
     type: PropTypes.string.isRequired,
     content: PropTypes.arrayOf(PropTypes.object).isRequired,
   }).isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(Content);

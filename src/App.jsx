@@ -110,7 +110,7 @@ function App(props) {
         </Navbar>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home isAuthenticated={isAuthenticated} />
           </Route>
           <Route path="/login">
             <Login login={fakeAuth.login} />

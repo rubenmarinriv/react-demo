@@ -1,5 +1,6 @@
+import _ from 'lodash';
 import {
-  SET_ORDER, SET_GENRE, SET_TYPE, SET_SEARCH, SET_CONTENT,
+  SET_ORDER, SET_GENRE, SET_TYPE, SET_SEARCH, SET_CONTENT, SET_RATING,
 } from '../action-types';
 
 const rootReducer = (state = {
@@ -35,6 +36,19 @@ const rootReducer = (state = {
         ...state,
         content: [...state.content, ...action.content],
       };
+    case SET_RATING: {
+      const index = _.findIndex(state.content, { id: action.id });
+      const updatedContent = { ...state };
+      const currentRating = updatedContent.content[index].rating;
+      const currentVotes = updatedContent.content[index].votes;
+
+      updatedContent.content[index].votes += 1;
+      updatedContent.content[index].rating = (
+        (currentRating * currentVotes) + action.rating
+      ) / updatedContent.content[index].votes;
+
+      return updatedContent;
+    }
     default:
       return state;
   }

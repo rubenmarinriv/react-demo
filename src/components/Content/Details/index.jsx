@@ -1,12 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {
   Modal, Media, Row, Col,
 } from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
 
+// Redux actions
+import { setRating } from '../../../actions';
+
+const mapDispatchToProps = (dispatch) => ({
+  setRating: (newRating, id) => dispatch(setRating(newRating, id)),
+});
+
 function Details(props) {
-  const { details, close } = props;
+  const {
+    details, close, isAuthenticated, setRating: setNewRating,
+  } = props;
+
+  const handleChangeRating = (newRating, id) => {
+    const { update } = props;
+
+    setNewRating(newRating, id);
+    update(id);
+  };
 
   return (
     <Modal
@@ -14,7 +31,7 @@ function Details(props) {
       size="lg"
       centered
       show={details.show}
-      onHide={() => close(details)}
+      onHide={close}
     >
       <Modal.Header closeButton>
         <Modal.Title>
@@ -78,12 +95,25 @@ function Details(props) {
               </Col>
             )}
             <Col className="mt-3 text-center text-md-left">
-              <StarRatings
-                rating={details.rating}
-                starDimension="24px"
-                starRatedColor="yellow"
-                numberOfStars={5}
-              />
+              {isAuthenticated ? (
+                <StarRatings
+                  rating={details.rating}
+                  starDimension="24px"
+                  starRatedColor="#ffc107"
+                  numberOfStars={5}
+                  starHoverColor="#0062cc"
+                  changeRating={(newRating) => handleChangeRating(newRating, details.id)}
+                />
+              ) : (
+                <StarRatings
+                  rating={details.rating}
+                  starDimension="24px"
+                  starRatedColor="#ffc107"
+                  numberOfStars={5}
+                />
+              )}
+              {' '}
+              {details.votes > 0 && `(${details.votes} ${details.votes > 1 ? 'votes' : 'vote'})`}
             </Col>
           </Col>
         </Row>
@@ -104,9 +134,13 @@ Details.propTypes = {
     directors: PropTypes.arrayOf(PropTypes.string).isRequired,
     stars: PropTypes.arrayOf(PropTypes.string).isRequired,
     rating: PropTypes.number.isRequired,
+    votes: PropTypes.number.isRequired,
     show: PropTypes.bool.isRequired,
   }).isRequired,
   close: PropTypes.func.isRequired,
+  update: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  setRating: PropTypes.func.isRequired,
 };
 
-export default Details;
+export default connect(null, mapDispatchToProps)(Details);
