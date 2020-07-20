@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
   setOrder: (newOrder) => dispatch(setOrder(newOrder)),
 });
 
-function Sort(props) {
+const Sort = (props) => {
   const { state } = props;
 
   // Alphabetically sort by 'title'
@@ -40,7 +40,7 @@ function Sort(props) {
         : <CaretDownFill color="white" />}
     </Button>
   );
-}
+};
 
 // Validate data types
 Sort.propTypes = {
