@@ -8,9 +8,10 @@ import Loader from '../Loader';
 import Filters from '../Filters';
 import Content from '../Content';
 
+// Redux state
 const mapStateToProps = (state) => ({ state });
 
-function Home(props) {
+const Home = (props) => {
   const { state, isAuthenticated } = props;
 
   return (
@@ -22,7 +23,9 @@ function Home(props) {
       </Container>
     </div>
   );
-}
+};
+
+// Validate data types
 Home.propTypes = {
   state: PropTypes.shape({
     content: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -30,4 +33,5 @@ Home.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };
 
+// Connect Redux state to App props
 export default connect(mapStateToProps)(Home);
