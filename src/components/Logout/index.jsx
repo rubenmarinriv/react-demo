@@ -15,7 +15,7 @@ function Logout(props) {
 
   return (
     <div className="Logout">
-      <Loader />
+      <Loader show />
     </div>
   );
 }
