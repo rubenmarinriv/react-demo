@@ -5,10 +5,11 @@ import { useHistory } from 'react-router-dom';
 // Components
 import Loader from '../Loader';
 
-function Logout(props) {
+const Logout = (props) => {
   const { logout } = props;
   const history = useHistory();
 
+  // Logout and redirect user to Home
   logout(() => {
     history.replace('/');
   });
@@ -18,8 +19,9 @@ function Logout(props) {
       <Loader show />
     </div>
   );
-}
+};
 
+// Validate data types
 Logout.propTypes = {
   logout: PropTypes.func.isRequired,
 };
