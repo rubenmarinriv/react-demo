@@ -7,8 +7,10 @@ import { CaretUpFill, CaretDownFill } from 'react-bootstrap-icons';
 // Redux actions
 import { setOrder } from '../../../actions';
 
+// Redux state
 const mapStateToProps = (state) => ({ state });
 
+// Redux dispatchers
 const mapDispatchToProps = (dispatch) => ({
   setOrder: (newOrder) => dispatch(setOrder(newOrder)),
 });
@@ -16,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
 function Sort(props) {
   const { state } = props;
 
-  // Alphabetically sort by title
+  // Alphabetically sort by 'title'
   const handleSort = () => {
     const { setOrder: setNewOrder } = props;
     let newOrder = '';
@@ -30,18 +32,17 @@ function Sort(props) {
   };
 
   return (
-    <Button
-      variant="primary"
-      onClick={handleSort}
-    >
+    <Button variant="primary" onClick={handleSort}>
       Sort
       {' '}
-      {state.order === 'asc' ? <CaretUpFill color="white" />
+      {state.order === 'asc'
+        ? <CaretUpFill color="white" />
         : <CaretDownFill color="white" />}
     </Button>
   );
 }
 
+// Validate data types
 Sort.propTypes = {
   state: PropTypes.shape({
     order: PropTypes.string.isRequired,
@@ -51,4 +52,5 @@ Sort.propTypes = {
   setOrder: PropTypes.func.isRequired,
 };
 
+// Connect Redux state and dispatchers to Sort props
 export default connect(mapStateToProps, mapDispatchToProps)(Sort);
