@@ -29,7 +29,7 @@ function Login(props) {
     if (typeof user !== 'undefined'
     && user.password === passwordInput.value) {
       login(() => {
-        history.push('/');
+        history.replace('/');
       });
     }
 

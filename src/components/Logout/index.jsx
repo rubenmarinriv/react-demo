@@ -10,7 +10,7 @@ function Logout(props) {
   const history = useHistory();
 
   logout(() => {
-    history.push('/');
+    history.replace('/');
   });
 
   return (
