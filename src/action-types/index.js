@@ -1,3 +1,4 @@
+// Redux action types
 const SET_ORDER = 'SET_ORDER';
 const SET_GENRE = 'SET_GENRE';
 const SET_TYPE = 'SET_TYPE';

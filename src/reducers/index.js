@@ -1,10 +1,11 @@
+// Redux reducers
 import _ from 'lodash';
 import {
   SET_ORDER, SET_GENRE, SET_TYPE, SET_SEARCH, SET_CONTENT, SET_RATING,
 } from '../action-types';
 
 const rootReducer = (state = {
-  order: 'asc',
+  order: 'asc', // Alphabetically ascending order by default
   genre: '',
   type: '',
   search: '',
@@ -36,7 +37,7 @@ const rootReducer = (state = {
         ...state,
         content: [...state.content, ...action.content],
       };
-    case SET_RATING: {
+    case SET_RATING: { // Update content rating
       const index = _.findIndex(state.content, { id: action.id });
       const updatedContent = { ...state };
       const currentRating = updatedContent.content[index].rating;

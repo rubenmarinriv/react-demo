@@ -1,3 +1,4 @@
+// Redux actions
 import {
   SET_ORDER, SET_GENRE, SET_TYPE, SET_SEARCH, SET_CONTENT, SET_RATING,
 } from '../action-types';
