@@ -4,17 +4,19 @@ import { connect } from 'react-redux';
 import { isArray, isString } from 'lodash';
 import { Form } from 'react-bootstrap';
 
+// Redux state
 const mapStateToProps = (state) => ({ state });
 
-function Dropdown(props) {
+const Dropdown = (props) => {
   const {
     state, defaultText, optionsKey, set,
   } = props;
   const values = [];
 
+  // Capitalize the given string
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  // Get select options
+  // Get select option values from our content data
   state.content.forEach((element) => {
     if (typeof element[optionsKey] !== 'undefined') {
       if (isArray(element[optionsKey])) {
@@ -31,6 +33,7 @@ function Dropdown(props) {
     }
   });
 
+  // Handle select change
   const handleChange = (e) => {
     const { currentTarget } = e;
     let newValue = '';
@@ -41,13 +44,9 @@ function Dropdown(props) {
     set(newValue);
   };
 
+  // Create options from values
   const options = values.map((element) => (
-    <option
-      key={element}
-      style={{
-        textTransform: 'capitalize',
-      }}
-    >
+    <option key={element} style={{ textTransform: 'capitalize' }}>
       {element}
     </option>
   ));
@@ -60,8 +59,9 @@ function Dropdown(props) {
       </Form.Control>
     </Form.Group>
   );
-}
+};
 
+// Validate data types
 Dropdown.propTypes = {
   state: PropTypes.shape({
     order: PropTypes.string.isRequired,
@@ -73,4 +73,5 @@ Dropdown.propTypes = {
   set: PropTypes.func.isRequired,
 };
 
+// Connect Redux state to Dropdown props
 export default connect(mapStateToProps)(Dropdown);
