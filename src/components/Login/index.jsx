@@ -6,22 +6,15 @@ import {
   Container, Row, Col, Card, Form, Button,
 } from 'react-bootstrap';
 
-/*
- * Users data
- *
- * If we had a backend we would make a request to the server
- * to make the auth process
- */
+// Users data
 import users from '../../data/users.json';
 
-function Login(props) {
+const Login = (props) => {
   const history = useHistory();
+  let emailInput = null; // Email input ref
+  let passwordInput = null; // Password input ref
 
-  // Email input ref
-  let emailInput = null;
-  // Password input ref
-  let passwordInput = null;
-
+  // Handle login form submit
   const handleSubmit = (e) => {
     const { login } = props;
     const user = _.find(users, { email: emailInput.value });
@@ -29,10 +22,12 @@ function Login(props) {
     if (typeof user !== 'undefined'
     && user.password === passwordInput.value) {
       login(() => {
+        // If the login is successful, redirect user to Home
         history.replace('/');
       });
     }
 
+    // Prevent default behaviour of submit event
     e.preventDefault();
   };
 
@@ -40,13 +35,7 @@ function Login(props) {
     <div className="Login">
       <Container>
         <Row>
-          <Col
-            className="m-auto"
-            sm={8}
-            md={6}
-            lg={5}
-            xl={4}
-          >
+          <Col className="m-auto" sm={8} md={6} lg={5} xl={4}>
             <Card>
               <Card.Body>
                 <Card.Title>Login</Card.Title>
@@ -69,9 +58,7 @@ function Login(props) {
                       ref={(input) => { passwordInput = input; }}
                     />
                   </Form.Group>
-                  <Button variant="primary" type="submit">
-                    Login
-                  </Button>
+                  <Button variant="primary" type="submit">Login</Button>
                 </Form>
               </Card.Body>
             </Card>
@@ -80,8 +67,9 @@ function Login(props) {
       </Container>
     </div>
   );
-}
+};
 
+// Validate data types
 Login.propTypes = {
   login: PropTypes.func.isRequired,
 };
