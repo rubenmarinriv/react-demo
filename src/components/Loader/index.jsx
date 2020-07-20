@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Spinner } from 'react-bootstrap';
 
-function Loader(props) {
+const Loader = (props) => {
   const { show } = props;
 
   return (
@@ -24,18 +24,16 @@ function Loader(props) {
           >
             <Spinner
               animation="border"
-              style={{
-                width: '5rem',
-                height: '5rem',
-              }}
+              style={{ width: '5rem', height: '5rem' }}
             />
           </div>
         </div>
       )}
     </>
   );
-}
+};
 
+// Validate data types
 Loader.propTypes = {
   show: PropTypes.bool.isRequired,
 };
